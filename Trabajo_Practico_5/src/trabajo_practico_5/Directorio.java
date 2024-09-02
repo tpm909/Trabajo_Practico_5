@@ -4,10 +4,42 @@
  */
 package trabajo_practico_5;
 
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 /**
  *
  * @author franco
  */
-public class Directorio {
+public abstract class Directorio {
+    
+   public static TreeMap<Long,Contacto> contacto = new TreeMap();
+    
+   public static TreeSet<Contacto> cosaInutil =new TreeSet();
+
+    public Directorio() {
+    }
+   
+   public static void agregarContacto (){
+       
+   }
+   
+   public static void buscarContacto (){
+       
+   }
+   public static void buscarTelefono (){
+       
+   }
+   public static void buscarContactos (){
+       
+   }
+   public static void borrarContacto (){
+       
+   }
+   
+   
+   
+   
+   
     
 }
