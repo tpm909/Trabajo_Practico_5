@@ -4,16 +4,17 @@
  */
 package trabajo_practico_5;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Tomi
  */
 public class JFrame_Contactos extends javax.swing.JFrame {
-        
-    /**
-     * Creates new form JFrame_Contactos
-     */
+    private Directorio directorio; //Instanciamos
+    
     public JFrame_Contactos() {
+        directorio = new Directorio();//Inicializamos el directorio
         initComponents();
     }
 
@@ -81,6 +82,11 @@ public class JFrame_Contactos extends javax.swing.JFrame {
         });
 
         jbDelete.setText("Borrar");
+        jbDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDeleteActionPerformed(evt);
+            }
+        });
 
         jbExit.setText("Salir");
         jbExit.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +114,7 @@ public class JFrame_Contactos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbSearch)
                                 .addGap(26, 26, 26))
                             .addGroup(layout.createSequentialGroup()
@@ -189,7 +195,7 @@ public class JFrame_Contactos extends javax.swing.JFrame {
                     .addComponent(jbSave)
                     .addComponent(jbDelete)
                     .addComponent(jbExit))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -202,6 +208,7 @@ public class JFrame_Contactos extends javax.swing.JFrame {
         jtApellido.setText("");
         jtCiudad.setText("");
         jtTelefono.setText("");
+        jtDireccion.setText("");
         
     }//GEN-LAST:event_jbNewActionPerformed
 
@@ -211,16 +218,42 @@ public class JFrame_Contactos extends javax.swing.JFrame {
 
     private void jbSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSaveActionPerformed
         //Pasaje de valores a variables.
+        try{
         int dni = Integer.parseInt(jtDni.getText()); //Pasaje de String a int
         String nombre = jtNombre.getText();
         String apellido = jtApellido.getText();
         String direccion = jtDireccion.getText();
         String ciudad = jtCiudad.getText();
         long telefono = Long.parseLong(jtTelefono.getText()); //Pasaje de String a long
-        Contacto contactos = new Contacto(dni, nombre, apellido, direccion, ciudad); //Creamos un contacto
-        //Contacto.agregarContacto (telefono, contactos); ver
+       
+        //Falta implementar que no se pueda colocar el mismo numero de telefono
         
+        //Creamos un contacto
+        Contacto contactos = new Contacto(dni, nombre, apellido, direccion, ciudad);
+       
+        //Pasamos el contacto al directorio
+        directorio.agregarContacto(telefono, contactos);
+        JOptionPane.showMessageDialog(  this, "El contacto fue agregado con exito!");
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(  this, "Ingrese datos validos!");
+        }
     }//GEN-LAST:event_jbSaveActionPerformed
+
+    private void jbDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeleteActionPerformed
+        try{
+        long telefono = Long.parseLong(jtTelefono.getText()); //Pasaje de String a long
+        Contacto comprobar = directorio.buscarContacto(telefono);
+        //Nos sirve para comprobar si existe el numero de telefono
+        if(comprobar != null){
+            directorio.borrarContacto(telefono);
+            JOptionPane.showMessageDialog(this, "El contacto fue borrado con exito!");
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontro ningun contacto registrado con ese numero de telefono!");
+        }
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(  this, "Ingrese datos validos!");
+        }
+    }//GEN-LAST:event_jbDeleteActionPerformed
 
     /**
      * @param args the command line arguments

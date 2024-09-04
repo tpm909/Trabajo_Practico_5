@@ -24,8 +24,8 @@ public class Directorio {
        contactos.put(telefono, otroContacto);
    }
    
-   public void buscarContacto (){
-       
+   public Contacto buscarContacto (Long telefono ){
+       return contactos.get(telefono);
    }
    public void buscarTelefono (){
        
