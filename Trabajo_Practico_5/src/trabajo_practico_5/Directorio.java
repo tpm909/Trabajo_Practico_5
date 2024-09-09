@@ -6,6 +6,7 @@ import java.util.TreeMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -54,6 +55,12 @@ public class Directorio {
    }
    
    public void borrarContacto (Long telefono){ //Borramos un elemeneto del TreeMap, Osea borramos un contacto segun su numero de telefono
-       JFrame_Principal.contactos.remove(telefono);
+      // Verificamos si el contacto existe en el TreeMap antes de intentar eliminarlo
+    if (JFrame_Principal.contactos.containsKey(telefono)) {
+        JFrame_Principal.contactos.remove(telefono); // Elimina el contacto según su número de teléfono
+        JOptionPane.showMessageDialog(null, "Contacto borrado exitosamente.");
+    } else {
+        JOptionPane.showMessageDialog(null, "No se encontró ningún contacto con ese número de teléfono.");
+   }
    }
 }

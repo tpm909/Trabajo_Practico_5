@@ -358,7 +358,7 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
         this.jtBuscador.setVisible(true);
     }
     
-    public void borrarFilasTabla(){ //Sacado de los apuntos, muy util!
+    public void borrarFilasTabla(){ //Sacado de los apuntes, muy util!
         int filas = tablas.getRowCount()-1;
         for(int i=filas; i>=0; i--){
             tablas.removeRow(i);
