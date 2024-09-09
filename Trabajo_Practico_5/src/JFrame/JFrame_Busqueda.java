@@ -254,35 +254,51 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
     }
     
     public void TablaTelefono(){
-        if(jrContactos.isSelected()){
-            MostrarBotones();
-            jlCambiante.setText("        Coloque el numero de telefono:");
-            String ids [] = {"Dni", "Nombre", "Apellido", "Dirección", "Ciudad", "Telefono"};
-            tablas.setColumnIdentifiers(ids);
-            TablaValores.setModel(tablas);
+        if (jrContactos.isSelected()) {
+        MostrarBotones();
+        jlCambiante.setText("        Coloque el numero de telefono:");
+        String ids[] = {"Dni", "Nombre", "Apellido", "Dirección", "Ciudad", "Telefono"};
+        tablas.setColumnIdentifiers(ids);
+        TablaValores.setModel(tablas);
 
-            try{
-            //Convertimos el jtBuscador en un Long
-            Long telefono = Long.parseLong(jtBuscador.getText()); //Fijarse porque tira la exception, Pareciera que tiene algo adentro del textfield, Ya probe con trim(); 
-            //PD, Sucede lo mismo en En la parte de apellido
-            Directorio directorio = new Directorio(); //Creamos una Instancia
+        try {
+            // Obtiene el texto del campo jtBuscador y lo limpia de espacios al inicio y final
+            String textoTelefono = jtBuscador.getText().trim();
+
+            // Verifica que el campo no esté vacío
+            if (textoTelefono.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "El campo de teléfono está vacío. Por favor, ingrese un número de teléfono.");
+                return;
+            }
+
+            // Verifica que el texto solo contenga números
+            if (!textoTelefono.matches("\\d+")) {
+                JOptionPane.showMessageDialog(this, "Ingrese caracteres válidos! Eso no es un número de teléfono...");
+                return;
+            }
+
+            // Convertimos el texto a un Long
+            Long telefono = Long.parseLong(textoTelefono);
+
+            Directorio directorio = new Directorio(); // Creamos una Instancia
             Contacto contacto = directorio.buscarContacto(telefono);
-            
-            if(contacto != null){
-            tablas.addRow(new Object[]{contacto.getDni(), 
-                                      contacto.getNombre(),
-                                      contacto.getApellido(),
-                                      contacto.getDireccion(),
-                                      contacto.getCiudad(),
-                                      telefono}
-            );                
-            }else{
-                JOptionPane.showMessageDialog(this, "No se encontro ningun contacto con ese numero telefonico asociado!");
+
+            if (contacto != null) {
+                tablas.addRow(new Object[]{
+                    contacto.getDni(),
+                    contacto.getNombre(),
+                    contacto.getApellido(),
+                    contacto.getDireccion(),
+                    contacto.getCiudad(),
+                    telefono
+                });
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró ningún contacto con ese número telefónico asociado!");
             }
-            }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(this, "Ingrese caracteres validos!, Eso no es un numero de telefono...");
-            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese caracteres válidos! Eso no es un número de teléfono...");
         }
+    }
     }
 
     public void TablaApellido(){
