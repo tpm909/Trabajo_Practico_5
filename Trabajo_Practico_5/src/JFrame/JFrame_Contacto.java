@@ -13,13 +13,10 @@ import trabajo_practico_5.Directorio;
  * @author Tomi
  */
 public class JFrame_Contacto extends javax.swing.JInternalFrame {
-        private Directorio directorio; //Instanciamos
-
     /**
      * Creates new form NewJInternalFrame
      */
     public JFrame_Contacto() {
-        directorio = new Directorio();//Inicializamos el directorio
         initComponents();
     }
 
@@ -203,10 +200,10 @@ public class JFrame_Contacto extends javax.swing.JInternalFrame {
     private void jbDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeleteActionPerformed
         try{
             long telefono = Long.parseLong(jtTelefono.getText()); //Pasaje de String a long
-            Contacto comprobar = directorio.buscarContacto(telefono);
+            Contacto comprobar = Directorio.buscarContacto(telefono);
             //Nos sirve para comprobar si existe el numero de telefono
             if(comprobar != null){
-                directorio.borrarContacto(telefono);
+                Directorio.borrarContacto(telefono);
                 JOptionPane.showMessageDialog(this, "El contacto fue borrado con exito!");
             }else{
                 JOptionPane.showMessageDialog(this, "No se encontro ningun contacto registrado con ese numero de telefono!");
@@ -227,7 +224,7 @@ public class JFrame_Contacto extends javax.swing.JInternalFrame {
             long telefono = Long.parseLong(jtTelefono.getText()); //Pasaje de String a long
 
             //Control de que si existe el mismo numero al JTextField
-            Contacto comprobar = directorio.buscarContacto(telefono);
+            Contacto comprobar = Directorio.buscarContacto(telefono);
             
             if(comprobar != null){
                 JOptionPane.showMessageDialog(this, "El numero de telefono ya se encuentra registrado!");
@@ -236,7 +233,7 @@ public class JFrame_Contacto extends javax.swing.JInternalFrame {
             Contacto contactos = new Contacto(dni, nombre, apellido, direccion, ciudad);
 
             //Pasamos el contacto al directorio
-            directorio.agregarContacto(telefono, contactos);
+            Directorio.agregarContacto(telefono, contactos);
             JOptionPane.showMessageDialog(  this, "El contacto fue agregado con exito!");
             }
             }catch(NumberFormatException e){
