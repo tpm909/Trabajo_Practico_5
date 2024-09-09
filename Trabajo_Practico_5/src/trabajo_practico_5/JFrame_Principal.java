@@ -30,7 +30,6 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jmBusqueda = new javax.swing.JMenu();
         busquedaApellido = new javax.swing.JMenuItem();
-        busquedaCiudad = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         exit = new javax.swing.JMenuItem();
 
@@ -71,16 +70,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
             }
         });
 
-        busquedaApellido.setText("Por apellido");
+        busquedaApellido.setText("Busqueda contactos");
         busquedaApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busquedaApellidoActionPerformed(evt);
             }
         });
         jmBusqueda.add(busquedaApellido);
-
-        busquedaCiudad.setText("Por ciudad");
-        jmBusqueda.add(busquedaCiudad);
 
         jMenuBar2.add(jmBusqueda);
 
@@ -113,7 +109,12 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void busquedaApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaApellidoActionPerformed
-        // Implementar tablas
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        JFrame_Busqueda Fbusqueda = new JFrame_Busqueda();
+        Fbusqueda.setVisible(true);
+        Escritorio.add(Fbusqueda);
+        Escritorio.moveToFront(Fbusqueda);
     }//GEN-LAST:event_busquedaApellidoActionPerformed
 
     private void jmContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmContactoActionPerformed
@@ -175,7 +176,6 @@ public class JFrame_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem busquedaApellido;
-    private javax.swing.JMenuItem busquedaCiudad;
     private javax.swing.JMenuItem exit;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;

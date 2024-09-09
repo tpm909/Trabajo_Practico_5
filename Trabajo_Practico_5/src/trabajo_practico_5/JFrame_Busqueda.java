@@ -6,24 +6,18 @@ package trabajo_practico_5;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Tomi
- */
 public class JFrame_Busqueda extends javax.swing.JInternalFrame {
 
-    DefaultTableModel tabla = new DefaultTableModel();
+    DefaultTableModel tablas = new DefaultTableModel();
     
     /**
      * Creates new form JFrame_Busqueda
      */
     public JFrame_Busqueda() {
         initComponents();
-        
-        String Ndatos [] = {"DNI", "Nombre", "Apellido", "Dirección", "Ciudad"};
-        tabla.setColumnIdentifiers(Ndatos);
-        TablaValores.setModel(tabla);
-        
+        String ids [] = {"Dni", "Nombre", "Apellido", "Dirección", "Ciudad", "Telefono"};
+        tablas.setColumnIdentifiers(ids);
+        TablaValores.setModel(tablas);
         
     }
 
@@ -34,36 +28,73 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaValores = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jrContactos = new javax.swing.JRadioButton();
+        jrCiudad = new javax.swing.JRadioButton();
+        jrApellido = new javax.swing.JRadioButton();
+        jcDatos = new javax.swing.JComboBox<>();
 
         TablaValores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(TablaValores);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setText("Busqueda de contactos");
+
+        jrContactos.setText("Contactos");
+
+        jrCiudad.setText("Ciudad");
+
+        jrApellido.setText("Apellido");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(164, 164, 164))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jcDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jrCiudad)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrContactos)
+                                .addGap(18, 18, 18)
+                                .addComponent(jrApellido)))
+                        .addGap(154, 154, 154))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 160, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrContactos)
+                    .addComponent(jrApellido)
+                    .addComponent(jrCiudad))
+                .addGap(27, 27, 27)
+                .addComponent(jcDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -72,6 +103,12 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaValores;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcDatos;
+    private javax.swing.JRadioButton jrApellido;
+    private javax.swing.JRadioButton jrCiudad;
+    private javax.swing.JRadioButton jrContactos;
     // End of variables declaration//GEN-END:variables
 }

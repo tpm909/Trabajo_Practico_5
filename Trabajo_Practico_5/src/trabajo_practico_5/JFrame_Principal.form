@@ -32,16 +32,11 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="busquedaApellido">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Por apellido"/>
+                <Property name="text" type="java.lang.String" value="Busqueda contactos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="busquedaApellidoActionPerformed"/>
               </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="busquedaCiudad">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Por ciudad"/>
-              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
