@@ -1,8 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package trabajo_practico_5;
+
+package JFrame;
+
+import java.util.ArrayList;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import trabajo_practico_5.Contacto;
+import trabajo_practico_5.Directorio;
 
 /**
  *
@@ -10,11 +13,20 @@ package trabajo_practico_5;
  */
 public class JFrame_Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JFrame_Principal
-     */
+    public static TreeMap<Long, Contacto> contactos = new TreeMap<>();
+    public static TreeSet<Long> telefonos = new TreeSet<>();
+    public static ArrayList<Contacto> buscaContactos = new ArrayList<>();
+    
+    
+    
     public JFrame_Principal() {
         initComponents();
+        Directorio cont = new Directorio();
+        cont.agregarContacto(1234567890L, new Contacto(12345678, "Juan", "Perez", "Calle Falsa 123", "Buenos Aires"));
+        cont.agregarContacto(9999231230L, new Contacto(23432432, "Pedro", "Perez", "Av No lo se 22", "Mendoza"));
+        cont.agregarContacto(5844567890L, new Contacto(5325678, "Jepeto", "Martinez", "Mitre 2023", "San Luis"));
+        cont.agregarContacto(2342567890L, new Contacto(67545278, "Tomas", "Suarez", "SoyUnaCalle 32", "Cordoba"));
+
     }
 
     /**
