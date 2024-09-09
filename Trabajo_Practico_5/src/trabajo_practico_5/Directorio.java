@@ -28,7 +28,7 @@ public class Directorio {
        JFrame_Principal.contactos.put(telefono, otroContacto); //Agrega un contacto al TreeMap
    }
    
-   public Contacto buscarContacto (Long telefono ){ //Busca un contacto segun su Key, dentro del TreeMap
+   public Contacto buscarContacto (Long telefono){ //Busca un contacto segun su Key, dentro del TreeMap
        return JFrame_Principal.contactos.get(telefono);
    }
    public TreeSet<Long> buscarTelefono (String apellido){ //Se usa el TreeMap y el Iterator
