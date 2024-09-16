@@ -36,10 +36,9 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaValores = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jrContactos = new javax.swing.JRadioButton();
+        jrTelefono = new javax.swing.JRadioButton();
         jrCiudad = new javax.swing.JRadioButton();
         jlCambiante = new javax.swing.JLabel();
-        jbBuscar = new javax.swing.JButton();
         jtBuscador = new javax.swing.JTextField();
         jrApellido = new javax.swing.JRadioButton();
         ContactosEnGeneral = new javax.swing.JRadioButton();
@@ -58,11 +57,11 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Busqueda de contactos");
 
-        Grupo1.add(jrContactos);
-        jrContactos.setText("Telefono");
-        jrContactos.addActionListener(new java.awt.event.ActionListener() {
+        Grupo1.add(jrTelefono);
+        jrTelefono.setText("Telefono");
+        jrTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrContactosActionPerformed(evt);
+                jrTelefonoActionPerformed(evt);
             }
         });
 
@@ -74,16 +73,14 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
             }
         });
 
-        jbBuscar.setText("Buscar");
-        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscarActionPerformed(evt);
-            }
-        });
-
         jtBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtBuscadorActionPerformed(evt);
+            }
+        });
+        jtBuscador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtBuscadorKeyTyped(evt);
             }
         });
 
@@ -117,15 +114,10 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(185, 185, 185)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jbBuscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlCambiante)
-                            .addComponent(jtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jlCambiante)
+                    .addComponent(jtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,7 +130,7 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jrCiudad)
                         .addGap(18, 18, 18)
-                        .addComponent(jrContactos)
+                        .addComponent(jrTelefono)
                         .addGap(18, 18, 18)
                         .addComponent(jrApellido)
                         .addGap(113, 113, 113))
@@ -153,7 +145,7 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrContactos)
+                    .addComponent(jrTelefono)
                     .addComponent(jrCiudad)
                     .addComponent(jrApellido)
                     .addComponent(ContactosEnGeneral))
@@ -161,9 +153,7 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
                 .addComponent(jlCambiante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jbExit)
@@ -178,28 +168,15 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
         TablaCiudad();
     }//GEN-LAST:event_jrCiudadActionPerformed
 
-    private void jrContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrContactosActionPerformed
+    private void jrTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrTelefonoActionPerformed
         borrarFilasTabla();
         TablaTelefono();
-    }//GEN-LAST:event_jrContactosActionPerformed
+    }//GEN-LAST:event_jrTelefonoActionPerformed
 
     private void jrApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrApellidoActionPerformed
         borrarFilasTabla();
         TablaApellido();
     }//GEN-LAST:event_jrApellidoActionPerformed
-
-    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        if(jrCiudad.isSelected()){
-            borrarFilasTabla();
-            TablaCiudad();
-        }else if(jrContactos.isSelected()){
-            borrarFilasTabla();
-            TablaTelefono();
-        }else if(jrApellido.isSelected()){
-            borrarFilasTabla();
-            TablaApellido();
-        }
-    }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jtBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscadorActionPerformed
         // TODO add your handling code here:
@@ -213,6 +190,19 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jbExitActionPerformed
 
+    private void jtBuscadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtBuscadorKeyTyped
+        if(jrCiudad.isSelected()){
+            borrarFilasTabla();
+            TablaCiudad();
+        }else if(jrTelefono.isSelected()){
+            borrarFilasTabla();
+            TablaTelefono();
+        }else{
+            borrarFilasTabla();
+            TablaApellido();
+        }
+    }//GEN-LAST:event_jtBuscadorKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton ContactosEnGeneral;
@@ -220,12 +210,11 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
     private javax.swing.JTable TablaValores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbExit;
     private javax.swing.JLabel jlCambiante;
     private javax.swing.JRadioButton jrApellido;
     private javax.swing.JRadioButton jrCiudad;
-    private javax.swing.JRadioButton jrContactos;
+    private javax.swing.JRadioButton jrTelefono;
     private javax.swing.JTextField jtBuscador;
     // End of variables declaration//GEN-END:variables
     public void TablaCiudad(){
@@ -254,15 +243,13 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
     }
     
     public void TablaTelefono(){
-        if(jrContactos.isSelected()){
             MostrarBotones();
             jlCambiante.setText("        Coloque el numero de telefono:");
             String ids [] = {"Dni", "Nombre", "Apellido", "Dirección", "Ciudad", "Telefono"};
             tablas.setColumnIdentifiers(ids);
             TablaValores.setModel(tablas);
-
-            try{
-            //Convertimos el jtBuscador en un Long
+            
+                      //Convertimos el jtBuscador en un Long
             Long telefono = Long.parseLong(jtBuscador.getText()); //Fijarse porque tira la exception, Pareciera que tiene algo adentro del textfield, Ya probe con trim(); 
             //PD, Sucede lo mismo en En la parte de apellido
             Directorio directorio = new Directorio(); //Creamos una Instancia
@@ -275,14 +262,8 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
                                       contacto.getDireccion(),
                                       contacto.getCiudad(),
                                       telefono}
-            );                
-            }else{
-                JOptionPane.showMessageDialog(this, "No se encontro ningun contacto con ese numero telefonico asociado!");
+            );
             }
-            }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(this, "Ingrese caracteres validos!, Eso no es un numero de telefono...");
-            }
-        }
     }
 
     public void TablaApellido(){
@@ -331,13 +312,11 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
     }
     
     public void OcultarBotones(){
-        this.jbBuscar.setVisible(false);
         this.jlCambiante.setVisible(false);
         this.jtBuscador.setVisible(false);
     }
     
     public void MostrarBotones(){
-        this.jbBuscar.setVisible(true);
         this.jlCambiante.setVisible(true);
         this.jtBuscador.setVisible(true);
     }

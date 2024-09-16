@@ -25,18 +25,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jScrollPane1" alignment="0" pref="606" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="270" max="-2" attributes="0"/>
-                      <Component id="jbBuscar" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlCambiante" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtBuscador" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="jlCambiante" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtBuscador" min="-2" pref="220" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -52,7 +44,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jrCiudad" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jrContactos" min="-2" max="-2" attributes="0"/>
+                      <Component id="jrTelefono" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jrApellido" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
@@ -72,7 +64,7 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jrContactos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jrTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jrCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jrApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ContactosEnGeneral" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -81,9 +73,7 @@
               <Component id="jlCambiante" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jtBuscador" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jbBuscar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="196" max="-2" attributes="0"/>
               <EmptySpace pref="46" max="32767" attributes="0"/>
               <Component id="jbExit" min="-2" max="-2" attributes="0"/>
@@ -123,7 +113,7 @@
         <Property name="text" type="java.lang.String" value="Busqueda de contactos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jrContactos">
+    <Component class="javax.swing.JRadioButton" name="jrTelefono">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="Grupo1"/>
@@ -131,7 +121,7 @@
         <Property name="text" type="java.lang.String" value="Telefono"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrContactosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrTelefonoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jrCiudad">
@@ -147,17 +137,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jlCambiante">
     </Component>
-    <Component class="javax.swing.JButton" name="jbBuscar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Buscar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBuscarActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="jtBuscador">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtBuscadorActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtBuscadorKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jrApellido">
