@@ -32,12 +32,13 @@ public class Directorio {
        return JFrame_Principal.contactos.get(telefono);
    }
    public TreeSet<Long> buscarTelefono (String apellido){ //Se usa el TreeMap y el Iterator
+       TreeSet<Long> telefonos = new TreeSet<>();
        Iterator<Long> it = JFrame_Principal.contactos.keySet().iterator();//Creamos el iterator para recorrer los numeros de telefonos
        while(it.hasNext()){
            Long telefono = it.next();
            Contacto contacto = JFrame_Principal.contactos.get(telefono); //Le colocamos el contacto del TreeMap
            
-           if(contacto.getApellido().equalsIgnoreCase(apellido)){ //Comparamos el apellido del TreeMap y el Apellido pasado por parametro
+           if(contacto.getApellido().equalsIgnoreCase(apellido)){ //Comparamos el apellido del TreeMap y el Apellido pasado por parametro, sin importas las mayusculas
                telefonos.add(telefono);//Si el apellido coincide, Agregamos el telefono al TreeSet
            }
        }
@@ -46,7 +47,7 @@ public class Directorio {
        
    public ArrayList<Contacto> buscarContactos (String ciudad){
        for(Contacto contacto : JFrame_Principal.contactos.values()){ //Recorremos el bucle for each
-           if(contacto.getCiudad().equals(ciudad)){//Comparamos la ciudad del TreeMap con la ciudad pasada por parametro
+           if(contacto.getCiudad().equalsIgnoreCase(ciudad)){//Comparamos la ciudad del TreeMap con la ciudad pasada por parametro, sin importas las mayusculas
                buscaContactos.add(contacto); //Si se cumple la condicion, Agregamos el contacto al ArrayList
            }
        }

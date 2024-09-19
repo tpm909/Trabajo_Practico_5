@@ -81,12 +81,6 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
             }
         });
 
-        jtBuscador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtBuscadorActionPerformed(evt);
-            }
-        });
-
         Grupo1.add(jrApellido);
         jrApellido.setText("Apellido");
         jrApellido.addActionListener(new java.awt.event.ActionListener() {
@@ -175,17 +169,20 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
 
     private void jrCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrCiudadActionPerformed
         borrarFilasTabla();
-        TablaCiudad();
+        MostrarBotones();
+        jlCambiante.setText("                       Coloque la ciudad:");
     }//GEN-LAST:event_jrCiudadActionPerformed
 
     private void jrContactosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrContactosActionPerformed
         borrarFilasTabla();
-        TablaTelefono();
+        MostrarBotones();
+        jlCambiante.setText("        Coloque el numero de telefono:");
     }//GEN-LAST:event_jrContactosActionPerformed
 
     private void jrApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrApellidoActionPerformed
         borrarFilasTabla();
-        TablaApellido();
+        MostrarBotones();
+        jlCambiante.setText("                    Coloque el apellido:");
     }//GEN-LAST:event_jrApellidoActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
@@ -201,11 +198,8 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
-    private void jtBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtBuscadorActionPerformed
-
     private void ContactosEnGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactosEnGeneralActionPerformed
+        borrarFilasTabla();
         TablasTreeMap();
     }//GEN-LAST:event_ContactosEnGeneralActionPerformed
 
@@ -229,9 +223,7 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtBuscador;
     // End of variables declaration//GEN-END:variables
     public void TablaCiudad(){
-        if(jrCiudad.isSelected()){
-            MostrarBotones();
-            jlCambiante.setText("                       Coloque la ciudad:");
+
             String ids [] = {"Dni", "Nombre", "Apellido", "Dirección", "Ciudad"};
             tablas.setColumnIdentifiers(ids);
             TablaValores.setModel(tablas);
@@ -250,13 +242,10 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
                                            contacto.getCiudad()}
                 );
             }
-        }
+        
     }
     
     public void TablaTelefono(){
-        if(jrContactos.isSelected()){
-            MostrarBotones();
-            jlCambiante.setText("        Coloque el numero de telefono:");
             String ids [] = {"Dni", "Nombre", "Apellido", "Dirección", "Ciudad", "Telefono"};
             tablas.setColumnIdentifiers(ids);
             TablaValores.setModel(tablas);
@@ -282,13 +271,10 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(this, "Ingrese caracteres validos!, Eso no es un numero de telefono...");
             }
-        }
+        
     }
 
     public void TablaApellido(){
-        if(jrApellido.isSelected()){
-            MostrarBotones();
-            jlCambiante.setText("                    Coloque el apellido:");
             String ids [] = {"Telefono", "Apellido"};
             tablas.setColumnIdentifiers(ids);
             TablaValores.setModel(tablas);
@@ -304,7 +290,6 @@ public class JFrame_Busqueda extends javax.swing.JInternalFrame {
                     tablas.addRow(new Object[]{telefono, apellido});
                 }
             }
-        }
     }
     
     public void TablasTreeMap(){
